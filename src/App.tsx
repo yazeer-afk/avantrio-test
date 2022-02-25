@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import { LoginView } from './components/login-view/LoginView.component'
 
 function App() {
   return (
     <div>
-      hi app
+      <LoginView />
     </div>
   );
 }
