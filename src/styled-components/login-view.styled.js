@@ -10,8 +10,6 @@ export const getStyledLoginView = () => styled.section`
 `
 
 export const getStyledFormContainer = () => styled.div`
-    width: 30%;
-    height: 45%;
     
     background-color: #ffffff;
     border-radius: 10px;

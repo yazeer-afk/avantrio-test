@@ -3,7 +3,8 @@ import { Formik, Form, FormikHelpers, } from 'formik';
 import { LoginInput } from './LoginInput.component';
 import { getStyledSignInButton } from '../../styled-components/login-view.styled';
 import { useDispatch } from 'react-redux';
-import { toggleUser } from '../../app/app-actions';
+import axios from 'axios'; 
+import { setToken } from '../../app/app-actions';
 
 export interface LoginFormProps {
 
@@ -37,10 +38,21 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         return errors;
     }
 
-    const handleSubmit = (values: IFormVars, ops: FormikHelpers<IFormVars>) => {
+    const handleSubmit = async (values: IFormVars, ops: FormikHelpers<IFormVars>) => {
         const { setSubmitting } = ops
-        dispatch(toggleUser(true))
-        setSubmitting(false)
+
+        try {
+            const response = await axios.post('http://apps.avantrio.xyz:8010/api/user/login', values)
+            console.log(response)
+            const token = response.data.token as string
+            dispatch(setToken(token))
+        } catch (error) {
+            console.error(error)
+        } finally {
+
+            setSubmitting(false)
+        }
+
     }
 
     return (

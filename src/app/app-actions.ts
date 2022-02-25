@@ -1,9 +1,9 @@
 
-export type AppAction = {type: 'TOGGLE_LOGIN', payload: boolean}
+export type AppAction = {type: 'SET_TOKEN', payload: string}
 
-export const toggleUser = (value: boolean):AppAction => (
+export const setToken = (value: string):AppAction => (
     {
-        type: 'TOGGLE_LOGIN',
+        type: 'SET_TOKEN',
         payload: value
     }
 )

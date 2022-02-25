@@ -15,12 +15,12 @@ export interface ViewSwitchProps {
 
 export const ViewSwitch: FC<ViewSwitchProps> = (props) => {
 
-    const isUseLoggedIn = useSelector<IAppState, boolean>((state) => state.userLoggedIn)
+    const tokenHave = useSelector<IAppState, string>((state) => state.token)
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={isUseLoggedIn ? <DashboardView /> : <LoginView /> } />
+                <Route path='/' element={tokenHave ? <DashboardView /> : <LoginView /> } />
                 <Route path='/home' element={<DashboardView />} />
             </Routes>
         </BrowserRouter>
