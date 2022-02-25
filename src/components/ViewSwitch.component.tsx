@@ -20,8 +20,9 @@ export const ViewSwitch: FC<ViewSwitchProps> = (props) => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={tokenHave ? <DashboardView /> : <LoginView /> } />
-                <Route path='/home' element={<DashboardView />} />
+                {/* <Route path='/' element={tokenHave ? <DashboardView /> : <LoginView /> } />
+                <Route path='/home' element={<DashboardView />} /> */}
+                <Route path='/' element={<DashboardView />} />
             </Routes>
         </BrowserRouter>
     )
