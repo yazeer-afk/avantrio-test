@@ -2,6 +2,8 @@ import { FC } from 'react'
 import { Formik, Form, FormikHelpers, } from 'formik';
 import { LoginInput } from './LoginInput.component';
 import { getStyledSignInButton } from '../../styled-components/login-view.styled';
+import { useDispatch } from 'react-redux';
+import { toggleUser } from '../../app/app-actions';
 
 export interface LoginFormProps {
 
@@ -16,6 +18,8 @@ const StyledSignInButton = getStyledSignInButton()
 
 export const LoginForm: FC<LoginFormProps> = (props) => {
 
+    const dispatch = useDispatch()
+
     const initialValues: IFormVars = {
         username: '',
         password: ''
@@ -24,7 +28,7 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
     const validateForm = (values: IFormVars): IFormVars => {
         const errors: IFormVars = {};
         if (!values.username) {
-            errors.username = 'E-mail is required!';
+            errors.username = 'Username is required!';
         }
 
         if (!values.password) {
@@ -35,7 +39,7 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
 
     const handleSubmit = (values: IFormVars, ops: FormikHelpers<IFormVars>) => {
         const { setSubmitting } = ops
-        alert(JSON.stringify(values))
+        dispatch(toggleUser(true))
         setSubmitting(false)
     }
 
