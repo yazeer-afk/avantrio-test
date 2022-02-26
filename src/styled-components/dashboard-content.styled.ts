@@ -26,3 +26,7 @@ export const getStyledMessageButton = () => styled.button`
         background-color: #FFADB3;
     }
 `
+
+export const getStyledHR = () => styled.hr`
+    border: 1px solid #253244;
+`

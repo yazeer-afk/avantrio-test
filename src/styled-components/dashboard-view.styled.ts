@@ -14,6 +14,7 @@ export const getStyledDashboardContainer = () => styled.div`
     section {
         background-color: #f1f3f7;
         width: 100%;
+        height: 90%;
     }
 `
 
@@ -46,16 +47,14 @@ export const getStyledDashboardContentHolder = () => styled.section`
 export const getStyledDashboardContent = () => styled.section`
     display: flex;
     align-items: center;
-    column-gap: 2vw;
+    column-gap: 5vw;
+    margin-top: 4vh;
 
-    .item {
-        width: 100%;
-        height: 100%;
-    }
-
-    .col {
+    .log {
         display: flex;
         flex-direction: column;
         row-gap: 4vh;
+        width: 100%;
+        height: 100%;
     }
 `

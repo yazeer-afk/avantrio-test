@@ -6080,6 +6080,11 @@ node-int64@^0.4.0:
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
   integrity sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=
 
+node-random-color@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/node-random-color/-/node-random-color-0.2.0.tgz#e004ceb514a3db78eb45fc27d7dca08c414a820a"
+  integrity sha512-OnoNn47STah4O9ASsjNAZpzseRcMONJjKxh2oiRmUDj7h3eGI7MzCpSxrhhKI13bV1jA/l5CEf5eR/V9neOCww==
+
 node-releases@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.2.tgz#7139fe71e2f4f11b47d4d2986aaf8c48699e0c01"
