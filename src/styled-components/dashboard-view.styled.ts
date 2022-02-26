@@ -47,13 +47,13 @@ export const getStyledDashboardContentHolder = () => styled.section`
 export const getStyledDashboardContent = () => styled.section`
     display: flex;
     align-items: center;
-    column-gap: 5vw;
+    column-gap: 1vw;
     margin-top: 4vh;
 
     .log {
         display: flex;
         flex-direction: column;
-        row-gap: 4vh;
+        row-gap: 2vh;
         width: 100%;
         height: 100%;
     }

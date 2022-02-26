@@ -3,6 +3,8 @@ import { getStyledHR } from '../../styled-components/dashboard-content.styled'
 import { getStyledDashboardContentHolder, getStyledDashboardContent } from '../../styled-components/dashboard-view.styled'
 import { DashboardEmployeeList } from './DashboardEmployeeList.component'
 import { DashboardHeader } from './DashboardHeader.component'
+import { DashboardLogsContainer } from './DashboardLogsContainer.component'
+import { DashboardMapView } from './DashboardMapView.component'
 
 export interface DashboardContentProps {
 
@@ -24,8 +26,8 @@ export const DashboardContent: FC<DashboardContentProps> = (props) => {
             <StyledDashboardContent>
                 <DashboardEmployeeList />
                 <div className='log'>
-                    <div>con</div>
-                    <div>con</div>
+                    <DashboardMapView />
+                    <DashboardLogsContainer />
                 </div>
             </StyledDashboardContent>
         </StyledDashboardContentHolder>
