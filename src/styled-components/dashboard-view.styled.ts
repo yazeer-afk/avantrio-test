@@ -14,7 +14,6 @@ export const getStyledDashboardContainer = () => styled.div`
     section {
         background-color: #f1f3f7;
         width: 100%;
-        height: 100%;
     }
 `
 

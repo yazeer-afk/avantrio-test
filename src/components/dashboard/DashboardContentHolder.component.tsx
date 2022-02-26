@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { getStyledDashboardContentHolder, getStyledDashboardContent } from '../../styled-components/dashboard-view.styled'
+import { DashboardHeader } from './DashboardHeader.component'
 
 export interface DashboardContentProps {
 
@@ -12,7 +13,7 @@ export const DashboardContent: FC<DashboardContentProps> = (props) => {
 
     return (
         <StyledDashboardContentHolder>
-            <div>Header</div>
+            <DashboardHeader />
             <div>hr</div>
             <StyledDashboardContent>
                 <div className='item'>con</div>
