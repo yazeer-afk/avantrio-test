@@ -1,17 +1,32 @@
-import {FC} from 'react'
-import { getStyledDashboardLogsContainer } from '../../styled-components/dashboard-logs.styled'
+import { FC } from 'react'
+import {
+    getStyledDashboardLogsContainer,
+    getStyledLogHR,
+    getStyledLogItemContainer
+} from '../../styled-components/dashboard-logs.styled'
+import { LogsAll } from './LogsAll.component'
+import { LogsMenu } from './LogsMenu.component'
 
 export interface DashboardLogsContainerProps {
-    
+
 }
 
-const StyledDashboardLogsContainer = getStyledDashboardLogsContainer()
 
 export const DashboardLogsContainer: FC<DashboardLogsContainerProps> = (props) => {
 
-    return(
+    const StyledDashboardLogsContainer = getStyledDashboardLogsContainer()
+    const StyledHR = getStyledLogHR()
+    const StyledLogItemsContainer = getStyledLogItemContainer()
+
+    return (
         <StyledDashboardLogsContainer>
-            asd
+            <LogsMenu />
+            <StyledHR />
+
+            <StyledLogItemsContainer>
+
+                <LogsAll />
+            </StyledLogItemsContainer>
         </StyledDashboardLogsContainer>
     )
 }

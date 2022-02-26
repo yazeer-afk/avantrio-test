@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { GRAY_COLOR } from "../util/colors";
 
 export const getStyledListCard = () => styled.div`
     display: flex;
@@ -38,7 +39,7 @@ export const getStyledEmployeeSwitch = () => styled.div`
 
     hr {
         width: 100%;
-        border: 1px solid #cccccc;
+        border: 1px solid ${GRAY_COLOR};
     }
 
     &:hover {
