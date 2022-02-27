@@ -53,11 +53,12 @@ export const getStyledMenuItemsContainer = () => styled.div`
     margin: 0 2vw;
 `
 
-export const getStyledMenuItem = () => styled.div`
+export const getStyledMenuItem = (isSelected: boolean) => styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
     cursor: pointer;
+    color: ${isSelected ? PRIMARY_COLOR : GRAY_COLOR};
 
     span {
         margin: 0 1.5vw;
@@ -67,8 +68,8 @@ export const getStyledMenuItem = () => styled.div`
     div {
         position: absolute;
         width: 100%;
-        border: 1px solid ${PRIMARY_COLOR};
-        margin-top: 5.5vh;
+        border: 1px solid ${isSelected ? PRIMARY_COLOR : GRAY_COLOR};
+        margin-top: 5.4vh;
         z-index: 1;
     }
 `
