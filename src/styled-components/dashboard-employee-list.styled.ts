@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { GRAY_COLOR } from "../util/colors";
+import { GRAY_COLOR, PRIMARY_COLOR } from "../util/colors";
 
 export const getStyledListCard = () => styled.div`
     display: flex;
@@ -23,7 +23,7 @@ export const getStyledSwitchContainer = () => styled.div`
     display: flex;
 `
 
-export const getStyledEmployeeSwitch = () => styled.div`
+export const getStyledEmployeeSwitch = (isSelected: boolean) => styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -35,15 +35,12 @@ export const getStyledEmployeeSwitch = () => styled.div`
         text-transform: uppercase;
         font-size: 1.2em;
         font-weight: 500;
+        color: ${isSelected ? PRIMARY_COLOR : GRAY_COLOR};
     }
 
     hr {
         width: 100%;
-        border: 1px solid ${GRAY_COLOR};
-    }
-
-    &:hover {
-        color: #FFADB3;
+        border: 1px solid ${isSelected ? PRIMARY_COLOR : GRAY_COLOR};
     }
 `
 
