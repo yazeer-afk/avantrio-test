@@ -1,14 +1,20 @@
 
-import { AppAction } from "./app-actions";
+import { AppAction, userLog } from "./app-actions";
 
 export interface IAppState {
     token: string,
-    shrink: boolean
+    shrink: boolean,
+    empLog: userLog
 }
 
 const initialState:IAppState = {
     token: '',
-    shrink: false
+    shrink: false,
+    empLog: {
+        user_id: 0,
+        user: '',
+        logs: []
+    }
 }
 
 export const appReducer = (state: IAppState = initialState, action: AppAction) => {
@@ -17,6 +23,8 @@ export const appReducer = (state: IAppState = initialState, action: AppAction) =
             return {...state, token: action.payload as string}
         case 'SET_SHRINK': 
             return {...state, shrink: action.payload as boolean}
+        case 'SET_EMPLOYEE_LOGS': 
+            return {...state, empLog: action.payload as userLog}
         default:
             return state;
     }

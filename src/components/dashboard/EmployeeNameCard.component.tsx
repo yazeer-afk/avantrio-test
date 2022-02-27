@@ -1,7 +1,11 @@
-import {FC} from 'react'
+import { FC } from 'react'
 import { getStyledNameCard, getStyledNameIcon } from '../../styled-components/dashboard-employee-list.styled'
 import dots from '../../assets/dots.png'
 import { employee } from './EmployeeContainer.component'
+import axios from 'axios'
+import { GET_EMPLOYEE_LOG } from '../../util/url'
+import { useDispatch } from 'react-redux'
+import { setLogs } from '../../app/app-actions'
 
 export interface EmployeeNameCardProps {
     color: string
@@ -10,12 +14,22 @@ export interface EmployeeNameCardProps {
 
 const StyledNameCard = getStyledNameCard()
 
-export const EmployeeNameCard: FC<EmployeeNameCardProps> = ({color, data}) => {
-    
-    const StyledNameIcon = getStyledNameIcon(color)
+export const EmployeeNameCard: FC<EmployeeNameCardProps> = ({ color, data }) => {
 
-    return(
-        <StyledNameCard>
+    const StyledNameIcon = getStyledNameIcon(color)
+    const dispatch = useDispatch()
+
+    const getLogs = async () => {
+        const response = await axios.get(`${GET_EMPLOYEE_LOG}/${data.id}/logs`)
+        dispatch(setLogs(response.data))
+    }
+
+    const handleClick = () => {
+        getLogs()
+    }
+
+    return (
+        <StyledNameCard onClick={handleClick}>
             <StyledNameIcon>{data.name.charAt(0).toUpperCase()}</StyledNameIcon>
             <div>{data.name}</div>
             <div className='place-end'>

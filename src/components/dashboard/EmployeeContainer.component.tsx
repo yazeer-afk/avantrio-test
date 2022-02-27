@@ -3,7 +3,9 @@ import randomColor from 'node-random-color'
 import { getStyledEmployeeContainer } from '../../styled-components/dashboard-employee-list.styled'
 import { EmployeeNameCard } from './EmployeeNameCard.component'
 import axios from 'axios'
-import { GET_EMPLOYEES } from '../../util/url'
+import { GET_EMPLOYEES, GET_EMPLOYEE_LOG } from '../../util/url'
+import { useDispatch } from 'react-redux'
+import { setLogs } from '../../app/app-actions'
 
 export interface EmployeeContainerProps {
 
@@ -28,16 +30,22 @@ export const EmployeeContainer: FC<EmployeeContainerProps> = (props) => {
         loading: true
     })
 
-    useEffect(() => {
-        const getEmployees = async () => {
-            const response = await axios.get(GET_EMPLOYEES)
-            const stateVal:IEmployeeResp = {
-                loading: false,
-                data: response.data
-            }
-            setEmployeeList(stateVal)
+    const dispatch = useDispatch()
+
+    const getEmployees = async () => {
+        const employeeResponse = await axios.get(GET_EMPLOYEES)
+        const empList = employeeResponse.data
+        const stateVal: IEmployeeResp = {
+            loading: false,
+            data: empList
         }
 
+        const logResponse = await axios.get(`${GET_EMPLOYEE_LOG}/${empList[0].id}/logs`)
+        setEmployeeList(stateVal)
+        dispatch(setLogs(logResponse.data))
+    }
+
+    useEffect(() => {
         getEmployees()
     }, [])
 
@@ -46,13 +54,13 @@ export const EmployeeContainer: FC<EmployeeContainerProps> = (props) => {
             return <span>Loading</span>
         } else {
             return employeeList.data.map((value, index) => {
-                
+
                 const color = randomColor({
                     difference: 25,
                     considerations: 5
                 });
 
-                return <EmployeeNameCard color={color} data={value} />
+                return <EmployeeNameCard key={value.name + index} color={color} data={value} />
             })
         }
     }

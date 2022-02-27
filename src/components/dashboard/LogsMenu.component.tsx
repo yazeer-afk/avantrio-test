@@ -1,21 +1,35 @@
-import {FC} from 'react'
+import { FC } from 'react'
 import { getStyledLogsMenuContainer } from '../../styled-components/dashboard-logs.styled'
 import { LogsMenuItemsContainer } from './LogsMenuItemsContainer.component'
 import filter from '../../assets/filter.png'
+import { useSelector } from 'react-redux'
+import { IAppState } from '../../app/app-reducer'
+import { userLog } from '../../app/app-actions'
 
 export interface LogsMenuProps {
-    
+
 }
 
 export const LogsMenu: FC<LogsMenuProps> = (props) => {
 
+    const logItems = useSelector<IAppState, userLog>((state) => state.empLog)
+    const { user } = logItems
+
     const StyledMenuContainer = getStyledLogsMenuContainer()
 
-    return(
+    const renderName = () => {
+        if (user) {
+            return user
+        }
+
+        return 'Loading!'
+    }
+
+    return (
         <StyledMenuContainer>
             <h3>History</h3>
-            <span>( Jaison Burnette )</span>
-            <div className='bar'/>
+            <span>{`( ${renderName()} )`}</span>
+            <div className='bar' />
             <LogsMenuItemsContainer />
 
             <div className='place-end'>
