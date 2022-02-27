@@ -6,6 +6,8 @@ import axios from 'axios'
 import { GET_EMPLOYEE_LOG } from '../../util/url'
 import { useDispatch } from 'react-redux'
 import { setLogs } from '../../app/app-actions'
+import { toast } from 'react-toastify';
+import { infoToast, successToast } from '../../util/toast-messages'
 
 export interface EmployeeNameCardProps {
     color: string
@@ -20,7 +22,9 @@ export const EmployeeNameCard: FC<EmployeeNameCardProps> = ({ color, data }) => 
     const dispatch = useDispatch()
 
     const getLogs = async () => {
+        infoToast('Fetching user logs!')
         const response = await axios.get(`${GET_EMPLOYEE_LOG}/${data.id}/logs`)
+        successToast('User logs retrieved')
         dispatch(setLogs(response.data))
     }
 

@@ -5,6 +5,7 @@ import { getStyledSignInButton } from '../../styled-components/login-view.styled
 import { useDispatch } from 'react-redux';
 import axios from 'axios'; 
 import { setToken } from '../../app/app-actions';
+import { infoToast } from '../../util/toast-messages';
 
 export interface LoginFormProps {
 
@@ -42,8 +43,9 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         const { setSubmitting } = ops
 
         try {
+            setSubmitting(true)
+            infoToast('Signing you in. Please wait!')
             const response = await axios.post('http://apps.avantrio.xyz:8010/api/user/login', values)
-            console.log(response)
             const token = response.data.token as string
             dispatch(setToken(token))
         } catch (error) {
