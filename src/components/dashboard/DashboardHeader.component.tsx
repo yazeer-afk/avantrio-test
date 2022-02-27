@@ -1,25 +1,47 @@
 import { FC } from 'react'
-import { getStyledHeaderContainer, getStyledMessageButton } from '../../styled-components/dashboard-content.styled'
+import { getStyledAlertIcon, getStyledHeaderContainer, getStyledMessageButton } from '../../styled-components/dashboard-content.styled'
 import sos from '../../assets/sos.png'
-import { DashboardAlertContainer } from './DashboardAlertContainer.component'
+import { useDispatch, useSelector } from 'react-redux'
+import { IAppState } from '../../app/app-reducer'
+import { setAlert } from '../../app/app-actions'
+import alertImg from '../../assets/alert.png'
 
 export interface DashboardHeaderProps {
 
 }
 
 const StyledHeaderContainer = getStyledHeaderContainer()
-const StyledMessageButton = getStyledMessageButton()
-
+const StyledAlertIcon = getStyledAlertIcon()
 
 export const DashboardHeader: FC<DashboardHeaderProps> = (props) => {
+    
+    const alert = useSelector<IAppState, boolean>((state) => state.alert)
+    const dispatch = useDispatch()
+    
+    const StyledMessageButton = getStyledMessageButton(alert)
+
+    const handleMessageOnClick = () => {
+        const newAlertState = !alert
+        dispatch(setAlert(newAlertState))
+    }
+
+    const renderAlertIcon = () => {
+        if (alert) {
+            return (
+                <StyledAlertIcon>
+                    <img src={alertImg} alt="Alert" height={30}/>
+                </StyledAlertIcon>
+            )
+        }
+    }
 
     return (
         <StyledHeaderContainer>
             <span>Monitor</span>
-            <StyledMessageButton>
+            <StyledMessageButton onClick={handleMessageOnClick}>
                 Message
+                {renderAlertIcon()}
             </StyledMessageButton>
-            {/* <DashboardAlertContainer /> */}
             <div>
                 <img src={sos} alt="sos" />
             </div>
