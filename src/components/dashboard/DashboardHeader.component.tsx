@@ -6,14 +6,10 @@ import { IAppState } from '../../app/app-reducer'
 import { setAlert } from '../../app/app-actions'
 import alertImg from '../../assets/alert.png'
 
-export interface DashboardHeaderProps {
-
-}
-
 const StyledHeaderContainer = getStyledHeaderContainer()
 const StyledAlertIcon = getStyledAlertIcon()
 
-export const DashboardHeader: FC<DashboardHeaderProps> = (props) => {
+export const DashboardHeader: FC = () => {
     
     const alert = useSelector<IAppState, boolean>((state) => state.alert)
     const dispatch = useDispatch()

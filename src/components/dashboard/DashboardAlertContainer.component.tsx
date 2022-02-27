@@ -1,11 +1,7 @@
 import {FC} from 'react'
 import { AlertItem } from './AlertItem.component'
 
-export interface DashboardAlertContainerProps {
-    
-}
-
-export const DashboardAlertContainer: FC<DashboardAlertContainerProps> = (props) => {
+export const DashboardAlertContainer: FC = () => {
 
     return(
         <>

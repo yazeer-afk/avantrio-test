@@ -2,13 +2,9 @@ import {FC, useState} from 'react'
 import { getStyledMenuItemsContainer } from '../../styled-components/dashboard-logs.styled'
 import { MenuItem } from './MenuItem.component'
 
-export interface LogsMenuItemsProps {
-    
-}
-
 export type menuType = 'ALL' | 'LOCATION' | 'MESSAGE' | 'ALERT' 
 
-export const LogsMenuItemsContainer: FC<LogsMenuItemsProps> = (props) => {
+export const LogsMenuItemsContainer: FC = (props) => {
 
     const [selectedMenu, setSelectedMenu] = useState<menuType>('ALL')
 

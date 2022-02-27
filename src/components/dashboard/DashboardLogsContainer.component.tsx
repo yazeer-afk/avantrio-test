@@ -8,17 +8,14 @@ import {
 import { LogsAll } from './LogsAll.component'
 import { LogsMenu } from './LogsMenu.component'
 
-export interface DashboardLogsContainerProps {
 
-}
+const StyledHR = getStyledLogHR()
 
-
-export const DashboardLogsContainer: FC<DashboardLogsContainerProps> = (props) => {
+export const DashboardLogsContainer: FC = () => {
 
     const shrink = useSelector<IAppState, boolean>((state) => state.shrink)
 
     const StyledDashboardLogsContainer = getStyledDashboardLogsContainer(shrink)
-    const StyledHR = getStyledLogHR()
 
     return (
         <StyledDashboardLogsContainer>

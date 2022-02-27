@@ -10,13 +10,8 @@ import bag from '../../assets/bag.png'
 import magnify from '../../assets/magnify.png'
 import tb from '../../assets/tb.png'
 
-export interface DashboardSideNavProps {
-    
-}
 
-
-
-export const DashboardSideNav: FC<DashboardSideNavProps> = (props) => {
+export const DashboardSideNav: FC = () => {
 
     return(
         <nav>

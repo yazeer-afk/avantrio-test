@@ -10,19 +10,16 @@ import { DashboardAlertContainer } from './DashboardAlertContainer.component'
 import { useSelector } from 'react-redux'
 import { IAppState } from '../../app/app-reducer'
 
-axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFjaGFsYSIsImV4cCI6MTY0NTk2NjQ1MiwiZW1haWwiOiJhY2hhbGFAbWFpbGluYXRvci5jb20iLCJvcmlnX2lhdCI6MTY0NTk2Mjg1Mn0.M_WRhZKu4cPShWKsICnlgC3bBJ0hc0MXo_Y1o-s0Xok';
-
-export interface DashboardContentProps {
-
-}
-
 const StyledDashboardContentHolder = getStyledDashboardContentHolder()
 const StyledDashboardContent = getStyledDashboardContent()
 const StyledHR = getStyledHR()
 
-export const DashboardContent: FC<DashboardContentProps> = (props) => {
-
+export const DashboardContent: FC = () => {
+    
     const alert = useSelector<IAppState, boolean>((state) => state.alert)
+    const token = useSelector<IAppState, string>((state) => state.token)
+
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
     const renderAlert = () => {
         if (alert) {

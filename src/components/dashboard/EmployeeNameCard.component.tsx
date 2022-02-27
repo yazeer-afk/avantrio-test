@@ -6,8 +6,7 @@ import axios from 'axios'
 import { GET_EMPLOYEE_LOG } from '../../util/url'
 import { useDispatch } from 'react-redux'
 import { setLogs } from '../../app/app-actions'
-import { toast } from 'react-toastify';
-import { infoToast, successToast } from '../../util/toast-messages'
+import { infoToast } from '../../util/toast-messages'
 
 export interface EmployeeNameCardProps {
     color: string

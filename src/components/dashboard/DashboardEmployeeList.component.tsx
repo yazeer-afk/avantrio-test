@@ -3,15 +3,11 @@ import { getStyledListCard } from '../../styled-components/dashboard-employee-li
 import { EmployeeContainer } from './EmployeeContainer.component'
 import { EmployeeSwitch } from './EmployeeSwitch.component'
 
-export interface DashboardEmployeeListProps {
-
-}
-
 export type userType = 'STAFF' | 'EMPLOYEE'
 
 const StyledEmployeeListCard = getStyledListCard()
 
-export const DashboardEmployeeList: FC<DashboardEmployeeListProps> = (props) => {
+export const DashboardEmployeeList: FC = () => {
 
     const [selectedUser, setSelectedUser] = useState<userType>('STAFF')
 

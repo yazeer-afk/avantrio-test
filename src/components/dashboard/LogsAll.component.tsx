@@ -5,11 +5,7 @@ import { IAppState } from '../../app/app-reducer'
 import { getStyledLogItemContainer } from '../../styled-components/dashboard-logs.styled'
 import { LogItem } from './LogItem.component'
 
-export interface LogsAllProps {
-
-}
-
-export const LogsAll: FC<LogsAllProps> = (props) => {
+export const LogsAll: FC = () => {
 
     const logItems = useSelector<IAppState, userLog>((state) => state.empLog)
     const { logs } = logItems

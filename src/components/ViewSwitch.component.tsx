@@ -9,20 +9,16 @@ import { IAppState } from '../app/app-reducer';
 import { DashboardView } from './dashboard/DashboardView.component';
 import { LoginView } from './login-view/LoginView.component';
 
-export interface ViewSwitchProps {
 
-}
-
-export const ViewSwitch: FC<ViewSwitchProps> = (props) => {
+export const ViewSwitch: FC = () => {
 
     const tokenHave = useSelector<IAppState, string>((state) => state.token)
 
     return (
         <BrowserRouter>
             <Routes>
-                {/* <Route path='/' element={tokenHave ? <DashboardView /> : <LoginView /> } />
-                <Route path='/home' element={<DashboardView />} /> */}
-                <Route path='/' element={<DashboardView />} />
+                <Route path='/' element={tokenHave ? <DashboardView /> : <LoginView /> } />
+                <Route path='/home' element={<DashboardView />} />
             </Routes>
         </BrowserRouter>
     )

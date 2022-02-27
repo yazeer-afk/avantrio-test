@@ -14,20 +14,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { IAppState } from '../../app/app-reducer'
 import { setShrink } from '../../app/app-actions'
 
-export interface DashboardMapViewProps {
+const StyledMagnifiers = getStyledMagnifiers()
+const StyledResetButton = getStyledResetMapBtn()
 
-}
-
-
-export const DashboardMapView: FC<DashboardMapViewProps> = (props) => {
+export const DashboardMapView: FC = () => {
     
     const shrink = useSelector<IAppState, boolean>((state) => state.shrink)
     const dispatch = useDispatch()
     
     const StyledMapContainer = getStyledMapContainer(shrink)
     const StyledShrinkAction = getStyledShrinkAction(shrink);
-    const StyledMagnifiers = getStyledMagnifiers()
-    const StyledResetButton = getStyledResetMapBtn()
 
     const renderContent = () => {
         if (shrink) {

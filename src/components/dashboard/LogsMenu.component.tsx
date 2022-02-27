@@ -6,11 +6,7 @@ import { useSelector } from 'react-redux'
 import { IAppState } from '../../app/app-reducer'
 import { userLog } from '../../app/app-actions'
 
-export interface LogsMenuProps {
-
-}
-
-export const LogsMenu: FC<LogsMenuProps> = (props) => {
+export const LogsMenu: FC = () => {
 
     const logItems = useSelector<IAppState, userLog>((state) => state.empLog)
     const { user } = logItems

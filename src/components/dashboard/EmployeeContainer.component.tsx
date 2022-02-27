@@ -7,10 +7,6 @@ import { GET_EMPLOYEES, GET_EMPLOYEE_LOG } from '../../util/url'
 import { useDispatch } from 'react-redux'
 import { setLogs } from '../../app/app-actions'
 
-export interface EmployeeContainerProps {
-
-}
-
 const StyledEmployeeContainer = getStyledEmployeeContainer()
 
 export type employee = {
@@ -23,7 +19,7 @@ interface IEmployeeResp {
     data: employee[]
 }
 
-export const EmployeeContainer: FC<EmployeeContainerProps> = (props) => {
+export const EmployeeContainer: FC = () => {
 
     const [employeeList, setEmployeeList] = useState<IEmployeeResp>({
         data: [],
