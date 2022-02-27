@@ -50,9 +50,9 @@ export const getStyledMagnifiers = () => styled.div`
     align-items: center;
     row-gap: 1vh;
     
-    img {
-        width: 35%;
-        height: 35%;
+    .magnifier {
+        width: 40%;
+        height: 40%;
         cursor: pointer;
         box-shadow: 0.5vw 0.5vh 3em  rgba(0, 0, 0, 0.1);
     }

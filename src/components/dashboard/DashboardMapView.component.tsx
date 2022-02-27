@@ -35,8 +35,8 @@ export const DashboardMapView: FC = () => {
                 <>
                     <StyledResetButton>Reset Map</StyledResetButton>
                     <StyledMagnifiers>
-                        <img src={zoomIn} alt="zoom in"/>
-                        <img src={zoomOut} alt="zoom out" />
+                        <img src={zoomIn} alt="zoom in" className='magnifier'/>
+                        <img src={zoomOut} alt="zoom out" className='magnifier'/>
                     </StyledMagnifiers>
                 </>
             )
