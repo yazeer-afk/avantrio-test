@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import {
     getStyledMagnifiers,
     getStyledMapContainer,
@@ -10,6 +10,9 @@ import {
 import map from '../../assets/map.png'
 import zoomOut from '../../assets/zoom-out.png'
 import zoomIn from '../../assets/zoom-in.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { IAppState } from '../../app/app-reducer'
+import { setShrink } from '../../app/app-actions'
 
 export interface DashboardMapViewProps {
 
@@ -18,7 +21,8 @@ export interface DashboardMapViewProps {
 
 export const DashboardMapView: FC<DashboardMapViewProps> = (props) => {
     
-    const [shrink, setShrink] = useState(false)
+    const shrink = useSelector<IAppState, boolean>((state) => state.shrink)
+    const dispatch = useDispatch()
     
     const StyledMapContainer = getStyledMapContainer(shrink)
     const StyledShrinkAction = getStyledShrinkAction(shrink);
@@ -44,7 +48,7 @@ export const DashboardMapView: FC<DashboardMapViewProps> = (props) => {
     }
 
     const handleShrinkAction = () => {
-        setShrink(prevState => !prevState)
+        dispatch(setShrink(!shrink))
     }
 
     return (

@@ -1,4 +1,6 @@
 import { FC } from 'react'
+import { useSelector } from 'react-redux'
+import { IAppState } from '../../app/app-reducer'
 import {
     getStyledDashboardLogsContainer,
     getStyledLogHR,
@@ -14,7 +16,9 @@ export interface DashboardLogsContainerProps {
 
 export const DashboardLogsContainer: FC<DashboardLogsContainerProps> = (props) => {
 
-    const StyledDashboardLogsContainer = getStyledDashboardLogsContainer()
+    const shrink = useSelector<IAppState, boolean>((state) => state.shrink)
+
+    const StyledDashboardLogsContainer = getStyledDashboardLogsContainer(shrink)
     const StyledHR = getStyledLogHR()
     const StyledLogItemsContainer = getStyledLogItemContainer()
 

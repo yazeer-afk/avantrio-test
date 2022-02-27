@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import { GRAY_COLOR, PRIMARY_COLOR, WHITE_COLOR } from "../util/colors";
+import { GRAY_COLOR, PRIMARY_COLOR, SECONDARY_COLOR, WHITE_COLOR } from "../util/colors";
 
-export const getStyledDashboardLogsContainer = () => styled.div`
-    height: 100%;
+export const getStyledDashboardLogsContainer = (shrink: boolean) => styled.div`
+    height: ${shrink ? '90%' : '60%'};
     position: relative;
     background-color: ${WHITE_COLOR};
     box-shadow: 0.1vw 0.1vh 2em  rgba(0, 0, 0, 0.05);
     border-radius: 10px;
+
+    padding-bottom: 2vh;
 
     display: flex;
     flex-direction: column;
@@ -73,4 +75,33 @@ export const getStyledMenuItem = () => styled.div`
 
 export const getStyledLogItemContainer = () => styled.div`
     padding: 1vh 2vw;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    height: 100%;
+    overflow-y: hidden;
+`
+
+export const getStyledLogItem = (title: boolean | undefined) => styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1.5vh 1.5vw;
+
+    ${title && `
+        font-weight: 600;
+        position: sticky;
+    `}
+
+    ${!title
+        && `
+            border: 1px solid ${SECONDARY_COLOR};
+            border-radius: 5px;
+        `
+    }
+
+    // span {
+    //     width: 100%;
+    //     text-align: center;
+    // }
 `
