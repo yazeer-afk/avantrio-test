@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
     "axios": "^0.26.0",
     "formik": "^2.2.9",
     "node-random-color": "^0.2.0",
@@ -22,7 +30,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
+  "resolutions": {
+    "styled-components": "^5"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -43,14 +53,6 @@
   },
   "devDependencies": {
     "@types/react-redux": "^7.1.22",
-    "@types/styled-components": "^5.1.23",
-    "@reduxjs/toolkit": "^1.7.2",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^17.0.20",
-    "@types/react-dom": "^17.0.9"
+    "@types/styled-components": "^5.1.23"
   }
 }
