@@ -28,6 +28,7 @@ export const getStyledMessageButton = (alert: boolean) => styled.button`
     font-weight: 600;
     padding: 1vh 2.5vw;
     cursor: pointer;
+    transition: background-color .3s;
     
     &:hover {
         background-color: #FFADB3;
