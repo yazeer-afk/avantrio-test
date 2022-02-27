@@ -31,7 +31,7 @@ export const LogsAll: FC<LogsAllProps> = (props) => {
                 const {date, alert_view, time} = value
                 const titleArr = [date, getOnOff(alert_view), time, 'Live Location']
 
-                return <LogItem content={titleArr} />
+                return <LogItem key={date + index} content={titleArr} />
             })
         } else {
             return <span>Loading!</span>
