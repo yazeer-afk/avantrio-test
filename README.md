@@ -1,5 +1,8 @@
 # Avantrio Test React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Test assignment for ASE position at Avantrio
 
-## Available Scripts
+## Project Workflow
+
+You can find the project implementation workflow from here:
+[Trello Board](https://trello.com/b/3yRKUdcJ/avantrio-test-assignment)
