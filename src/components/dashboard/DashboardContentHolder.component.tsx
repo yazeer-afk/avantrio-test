@@ -6,8 +6,11 @@ import { DashboardHeader } from './DashboardHeader.component'
 import { DashboardLogsContainer } from './DashboardLogsContainer.component'
 import { DashboardMapView } from './DashboardMapView.component'
 import axios from "axios";
+import { DashboardAlertContainer } from './DashboardAlertContainer.component'
+import { useSelector } from 'react-redux'
+import { IAppState } from '../../app/app-reducer'
 
-axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFjaGFsYSIsImV4cCI6MTY0NTk1MTYzNSwiZW1haWwiOiJhY2hhbGFAbWFpbGluYXRvci5jb20iLCJvcmlnX2lhdCI6MTY0NTk0ODAzNX0.xs4jNkXziU4zoA1V95pj7i3JdvYp8-JlYUxu7Zn-wVU';
+axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFjaGFsYSIsImV4cCI6MTY0NTk1ODI2MywiZW1haWwiOiJhY2hhbGFAbWFpbGluYXRvci5jb20iLCJvcmlnX2lhdCI6MTY0NTk1NDY2M30.GSI_CuKM1KviPVIuE0NzQyfhbECZuNCo0qZ8zgdZuwo';
 
 export interface DashboardContentProps {
 
@@ -19,8 +22,17 @@ const StyledHR = getStyledHR()
 
 export const DashboardContent: FC<DashboardContentProps> = (props) => {
 
+    const alert = useSelector<IAppState, boolean>((state) => state.alert)
+
+    const renderAlert = () => {
+        if (alert) {
+            return <DashboardAlertContainer />
+        }
+    }
+
     return (
         <StyledDashboardContentHolder>
+            {renderAlert()}
             <DashboardHeader />
             <div>
                 <StyledHR />

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const getStyledDashboardContainer = () => styled.div`
     height: 100vh;
     display: flex;
+    position: relative;
+    z-index: 5;
     
     nav {
         display: flex;
@@ -39,6 +41,7 @@ export const getStyledNavIconContainer = (backgroundColor?: string, placeEnd?: b
 
 export const getStyledDashboardContentHolder = () => styled.section`
     padding: 5vh 4vw;
+    position: relative;
 
     display: flex;
     flex-direction: column;

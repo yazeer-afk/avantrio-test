@@ -15,8 +15,8 @@ export type userLog = {
 }
 
 export type AppAction = {
-    type: 'SET_TOKEN' | 'SET_SHRINK' | 'SET_EMPLOYEE_LOGS', 
-    payload: string | boolean | userLog | {}}
+    type: 'SET_TOKEN' | 'SET_SHRINK' | 'SET_EMPLOYEE_LOGS' | 'SET_ALERT', 
+    payload: string | boolean | userLog}
 
 export const setToken = (value: string):AppAction => (
     {
@@ -35,6 +35,13 @@ export const setShrink = (value: boolean) : AppAction => (
 export const setLogs = (value: userLog): AppAction => (
     {
         type: "SET_EMPLOYEE_LOGS",
+        payload: value
+    }
+)
+
+export const setAlert = (value: boolean): AppAction => (
+    {
+        type: "SET_ALERT",
         payload: value
     }
 )
