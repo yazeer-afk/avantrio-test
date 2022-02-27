@@ -27,6 +27,7 @@ export const getStyledNavIconContainer = (backgroundColor?: string, placeEnd?: b
     background-color: #${backgroundColor};
     cursor: pointer;
     ${placeEnd ? 'margin-top: auto;' : ''}
+    transition: background-color .3s;
 
     img {
         width: 100%;
