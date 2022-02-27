@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { GRAY_COLOR, PRIMARY_COLOR, SECONDARY_COLOR, WHITE_COLOR } from "../util/colors";
 
 export const getStyledDashboardLogsContainer = (shrink: boolean) => styled.div`
-    height: ${shrink ? '90%' : '60%'};
+    // height: ${shrink ? '60%' : '60%'};
+    min-height: 40vh;
+    max-height: 70vh;
     position: relative;
     background-color: ${WHITE_COLOR};
     box-shadow: 0.1vw 0.1vh 2em  rgba(0, 0, 0, 0.05);

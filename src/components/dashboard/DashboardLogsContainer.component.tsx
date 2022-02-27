@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux'
 import { IAppState } from '../../app/app-reducer'
 import {
     getStyledDashboardLogsContainer,
-    getStyledLogHR,
-    getStyledLogItemContainer
+    getStyledLogHR
 } from '../../styled-components/dashboard-logs.styled'
 import { LogsAll } from './LogsAll.component'
 import { LogsMenu } from './LogsMenu.component'
@@ -20,17 +19,12 @@ export const DashboardLogsContainer: FC<DashboardLogsContainerProps> = (props) =
 
     const StyledDashboardLogsContainer = getStyledDashboardLogsContainer(shrink)
     const StyledHR = getStyledLogHR()
-    const StyledLogItemsContainer = getStyledLogItemContainer()
 
     return (
         <StyledDashboardLogsContainer>
             <LogsMenu />
             <StyledHR />
-
-            <StyledLogItemsContainer>
-
-                <LogsAll />
-            </StyledLogItemsContainer>
+            <LogsAll />
         </StyledDashboardLogsContainer>
     )
 }

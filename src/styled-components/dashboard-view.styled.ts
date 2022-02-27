@@ -41,7 +41,7 @@ export const getStyledNavIconContainer = (backgroundColor?: string, placeEnd?: b
 `
 
 export const getStyledDashboardContentHolder = () => styled.section`
-    padding: 5vh 4vw;
+    padding: 1vh 4vw;
     position: relative;
 
     display: flex;

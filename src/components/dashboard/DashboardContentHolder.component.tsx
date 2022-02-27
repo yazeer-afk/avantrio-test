@@ -10,7 +10,7 @@ import { DashboardAlertContainer } from './DashboardAlertContainer.component'
 import { useSelector } from 'react-redux'
 import { IAppState } from '../../app/app-reducer'
 
-axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFjaGFsYSIsImV4cCI6MTY0NTk2MzAyMiwiZW1haWwiOiJhY2hhbGFAbWFpbGluYXRvci5jb20iLCJvcmlnX2lhdCI6MTY0NTk1OTQyMn0.7KF8wtPJQTgTWOvuMiE_PaCtR0rVNTCx_tuI1ggpxpQ';
+axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFjaGFsYSIsImV4cCI6MTY0NTk2NjQ1MiwiZW1haWwiOiJhY2hhbGFAbWFpbGluYXRvci5jb20iLCJvcmlnX2lhdCI6MTY0NTk2Mjg1Mn0.M_WRhZKu4cPShWKsICnlgC3bBJ0hc0MXo_Y1o-s0Xok';
 
 export interface DashboardContentProps {
 

@@ -24,7 +24,6 @@ export const EmployeeNameCard: FC<EmployeeNameCardProps> = ({ color, data }) => 
     const getLogs = async () => {
         infoToast('Fetching user logs!')
         const response = await axios.get(`${GET_EMPLOYEE_LOG}/${data.id}/logs`)
-        successToast('User logs retrieved')
         dispatch(setLogs(response.data))
     }
 
